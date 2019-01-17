@@ -328,7 +328,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btMgTulosta1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblMgRiviNro1" min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="lblMgRiviNro" min="-2" pref="57" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -339,7 +339,7 @@
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btMgTulosta1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblMgRiviNro1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblMgRiviNro" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -347,7 +347,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="lblMgRiviNro1">
+                    <Component class="javax.swing.JLabel" name="lblMgRiviNro">
                     </Component>
                     <Component class="javax.swing.JButton" name="btMgTulosta1">
                       <Properties>

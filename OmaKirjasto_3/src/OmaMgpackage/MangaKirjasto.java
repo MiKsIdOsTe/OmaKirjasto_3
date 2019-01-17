@@ -31,11 +31,16 @@ public class MangaKirjasto extends javax.swing.JFrame {
      */
     public MangaKirjasto() throws ClassNotFoundException, SQLException {
         initComponents();
-
+        
+        
         tableloadMg(tbManga);
         comboloadMg(comboManga);
+        
         tableloadKjs(tbKirjasto);
         comboload2(comboKirjasto);
+        
+        clear();
+        rivinlasku();
     }
 
     /**
@@ -59,7 +64,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbManga = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
-        lblMgRiviNro1 = new javax.swing.JLabel();
+        lblMgRiviNro = new javax.swing.JLabel();
         btMgTulosta1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -198,7 +203,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btMgTulosta1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMgRiviNro1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMgRiviNro, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -207,7 +212,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btMgTulosta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMgRiviNro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblMgRiviNro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -530,7 +535,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btValikkoTyhjennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValikkoTyhjennaActionPerformed
-        // TODO add your handling code here:
+        clear();
+        rivinlasku();
     }//GEN-LAST:event_btValikkoTyhjennaActionPerformed
 
     private void btMgLisaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMgLisaaActionPerformed
@@ -570,11 +576,16 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
+                
+
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
+                
+                clear();
+                rivinlasku();
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
@@ -625,11 +636,15 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
+               
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
-                comboload2(comboKirjasto);
+                comboload2(comboKirjasto); 
+                
+                clear();
+                rivinlasku();
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
@@ -658,18 +673,16 @@ public class MangaKirjasto extends javax.swing.JFrame {
              * id:t-tekstikenttiin. Asetetaan Manga välilehti valituksi
              * lasketaan raulukkojen rivit uudellen.
              */
-            // clear();
+            
             tableloadMg(tbManga);
             comboloadMg(comboManga);
 
             tableloadKjs(tbKirjasto);
             comboload2(comboKirjasto);
-            /* idloadManga(txtMgID);
-
             
-            idloadKirjasto(txtKjsID);
-            jTabbedPane1.setSelectedIndex(1);
-            rivinlasku();*/
+            clear();
+            rivinlasku();
+
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -770,25 +783,98 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
+                
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
+                
+                clear();
+                rivinlasku();
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btKjsLisaaActionPerformed
 
     private void btKjsPaivitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKjsPaivitaActionPerformed
-        
+        try {
+            if (txtKjsNro.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Nro kenttä ei saa olla tyhjä!");
+
+            } else if (txtKjsHuom.getText().length() > 100) {
+                JOptionPane.showMessageDialog(null, "Huom. kenttä on yli 100 merkkiä pitkä!");
+
+            } else {
+                /**
+                 * Haetaan valittavan tiedon id comboManga:sta ja
+                 * comboKirjasto:sta Muutetaan ne int-muotoon. Päivitetään
+                 * MGKIRJASTO:on mangan id ja Nro, joka haetaan tekstikentästä
+                 */
+                String valinta = (String) comboManga.getSelectedItem();
+                String[] nimet = valinta.split(" ");
+                int mangaId = Integer.parseInt(nimet[0]);
+
+                String valintaKjs = (String) comboKirjasto.getSelectedItem();
+                String[] nimetKjs = valintaKjs.split(" ");
+                int kirjastoId = Integer.parseInt(nimetKjs[0]);
+
+                String huom = txtKjsHuom.getText();
+                int nro = Integer.parseInt(txtKjsNro.getText());
+
+                db.putData("UPDATE MGKIRJASTO SET ID_MANGA  =" + mangaId + ", NRO = " + nro + ", HUOM = '" + huom + "'  WHERE KIRJASTOID =" + kirjastoId);
+
+                /**
+                 * Tyhjennetään tekstikentät ladataan uudestaan taulukot,
+                 * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
+                 * valituksi lasketaan raulukkojen rivit uudellen.
+                 */
+                
+                tableloadMg(tbManga);
+                comboloadMg(comboManga);
+
+                tableloadKjs(tbKirjasto);
+                comboload2(comboKirjasto);
+                
+                clear();
+                rivinlasku();
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btKjsPaivitaActionPerformed
 
     private void btKjsPoistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKjsPoistaActionPerformed
-        // TODO add your handling code here:
+        try {
+            /**
+             * Haetaan poistettavan tiedon id comboKirjasto:sta ja muutetaan se
+             * int-muotoon. Poistetaan tieto MGKIRJASTO:sta KirjastoID:n mukaan
+             */
+            String valinta = (String) comboKirjasto.getSelectedItem();
+            String[] nimet = valinta.split(" ");
+            int kirjastoId = Integer.parseInt(nimet[0]);
+
+            db.putData("DELETE FROM MGKIRJASTO WHERE KIRJASTOID = " + kirjastoId);
+
+            /**
+             * Kutsutaan metodeja. Tyhjennetään tekstikentät ladataan uudestaan.
+             * manga ja kirjasto taulukot valikot ja id:t-tekstikenttiin.
+             * lasketaan raulukkojen rivit uudellen. Asetetaan Kirjasto
+             * välilehti päällimmäiseksi
+             */
+            clear();
+            rivinlasku();
+            tableloadMg(tbManga);
+            comboloadMg(comboManga);
+
+            tableloadKjs(tbKirjasto);
+            comboload2(comboKirjasto);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btKjsPoistaActionPerformed
 
     private void tbKirjastoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbKirjastoMouseClicked
@@ -819,10 +905,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
             //Lisätään tiedot comboManga-valikkoon
             while (rset.next()) {
-                System.out.println("lisätään comboon");
-                 comboManga.setSelectedItem(rset.getInt("ID") + " " + rset.getString("NIMI") + " " + rset.getString("KIELI"));
+                comboManga.setSelectedItem(rset.getInt("ID") + " " + rset.getString("NIMI") + " " + rset.getString("KIELI"));
                 //Lisätään txtMgID-kenttään Manga ID 
-                System.out.println("lisätty comboon");
                 txtMgID.setText(rset.getString("ID"));
             }
 
@@ -830,12 +914,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
             ResultSet rset2 = db.getData("SELECT * FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID WHERE KIRJASTOID= " + valittuKjsID);
             //Lisätään tiedot comboKirjasto-valikkoon
             while (rset2.next()) {
-                System.out.println("lisätään comboon2");
                 comboKirjasto.setSelectedItem(rset2.getInt("KIRJASTOID") + " " + rset2.getString("NIMI") + " " + rset2.getInt("NRO") + " " + rset2.getString("HUOM"));
-                System.out.println("lisätty comboon2");
             }
-
-            
 
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
@@ -954,7 +1034,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblKjsRiviNro;
-    private javax.swing.JLabel lblMgRiviNro1;
+    private javax.swing.JLabel lblMgRiviNro;
     private javax.swing.JTable tbKirjasto;
     private javax.swing.JTable tbManga;
     private javax.swing.JTextField txtKjsHuom;
@@ -967,6 +1047,28 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JTextField txtMgNimi;
     private javax.swing.JTextField txtMgTekija;
     // End of variables declaration//GEN-END:variables
+
+    private void clear() {
+        //Tyhjennetään teksti kentät
+        txtMgNimi.setText(null);
+        txtMgTekija.setText(null);
+        txtMgKustantaja.setText(null);
+        txtMgKieli.setText(null);
+        txtMgGenre.setText(null);
+        txtKjsNro.setText(null);
+        txtKjsHuom.setText(null);
+    }
+
+    private void rivinlasku() {
+        /**
+         * Lasketaan Kirjato-taulukon rivit ja lisätään lblKjsRivi-labeliin.
+         * Lasketaan Manga-taulukon rivit ja lisätään lblMgRivi-labeliin.
+         */
+        int riviKjs = tbKirjasto.getRowCount();
+        lblKjsRiviNro.setText("" + riviKjs + " ");
+        int riviMg = tbManga.getRowCount();
+        lblMgRiviNro.setText("" + riviMg + " ");
+    }
 
 //MANGA
     private void tableloadMg(JTable jt) throws ClassNotFoundException, SQLException {
