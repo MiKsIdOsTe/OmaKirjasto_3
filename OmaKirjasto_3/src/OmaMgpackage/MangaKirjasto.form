@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -392,7 +392,7 @@
                           <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="92" max="32767" attributes="0"/>
+                          <EmptySpace pref="271" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -576,9 +576,9 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtMgNimi2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="txtMgNimi3" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <Component id="txtMgNimi1" min="-2" pref="378" max="-2" attributes="0"/>
+                                          <Component id="txtKjsID" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="txtKjsNro" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="txtKjsHuom" min="-2" pref="378" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="btKjsLisaa" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -604,7 +604,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMgNimi2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtKjsID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -614,12 +614,12 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMgNimi3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtKjsNro" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMgNimi1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtKjsHuom" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -627,7 +627,7 @@
                                   <Component id="btKjsPaivita" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btKjsPoista" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="211" max="32767" attributes="0"/>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -648,14 +648,14 @@
                         <Property name="text" type="java.lang.String" value="Huom."/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtMgNimi1">
+                    <Component class="javax.swing.JTextField" name="txtKjsHuom">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtMgNimi2">
+                    <Component class="javax.swing.JTextField" name="txtKjsID">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtMgNimi3">
+                    <Component class="javax.swing.JTextField" name="txtKjsNro">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
