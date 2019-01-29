@@ -118,14 +118,14 @@
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="8" rowCount="0">
-                            <Column editable="true" title="ID" type="java.lang.Object"/>
-                            <Column editable="true" title="Nimi" type="java.lang.Object"/>
-                            <Column editable="true" title="Tekij&#xe4;" type="java.lang.Object"/>
-                            <Column editable="true" title="Kustantaja" type="java.lang.Object"/>
-                            <Column editable="true" title="Kieli" type="java.lang.Object"/>
-                            <Column editable="true" title="Genre" type="java.lang.Object"/>
-                            <Column editable="true" title="Nro." type="java.lang.Object"/>
-                            <Column editable="true" title="HUOM." type="java.lang.Object"/>
+                            <Column editable="false" title="ID" type="java.lang.Object"/>
+                            <Column editable="false" title="Nimi" type="java.lang.Object"/>
+                            <Column editable="false" title="Tekij&#xe4;" type="java.lang.Object"/>
+                            <Column editable="false" title="Kustantaja" type="java.lang.Object"/>
+                            <Column editable="false" title="Kieli" type="java.lang.Object"/>
+                            <Column editable="false" title="Genre" type="java.lang.Object"/>
+                            <Column editable="false" title="Nro." type="java.lang.Integer"/>
+                            <Column editable="false" title="HUOM." type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -216,6 +216,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tulosta"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btKjsTulostaActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -353,6 +356,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tulosta"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btMgTulosta1ActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

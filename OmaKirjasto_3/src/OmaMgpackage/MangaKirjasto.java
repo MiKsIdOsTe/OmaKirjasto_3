@@ -1,8 +1,10 @@
 package OmaMgpackage;
 
 //import OmaMgpackage.JCDB;
+import java.awt.print.PrinterException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -109,7 +111,22 @@ public class MangaKirjasto extends javax.swing.JFrame {
             new String [] {
                 "ID", "Nimi", "Tekijä", "Kustantaja", "Kieli", "Genre", "Nro.", "HUOM."
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tbKirjasto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbKirjastoMouseClicked(evt);
@@ -122,6 +139,11 @@ public class MangaKirjasto extends javax.swing.JFrame {
         }
 
         btKjsTulosta.setText("Tulosta");
+        btKjsTulosta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btKjsTulostaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -194,6 +216,11 @@ public class MangaKirjasto extends javax.swing.JFrame {
         }
 
         btMgTulosta1.setText("Tulosta");
+        btMgTulosta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMgTulosta1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -957,6 +984,39 @@ public class MangaKirjasto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_comboKirjastoPopupMenuWillBecomeInvisible
 
+    private void btKjsTulostaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKjsTulostaActionPerformed
+         /**
+         * Luodaan Otsikko ja ala otsikko(Sivunumero) ja lisätään ne
+         * tulostettavaan taulukkoon.
+         */
+        MessageFormat otsikko = new MessageFormat("Manga kirjasto");
+
+        MessageFormat alaOtsikko = new MessageFormat("Sivu{0,number,integer}");
+
+        
+        try {
+            tbKirjasto.print(JTable.PrintMode.FIT_WIDTH, otsikko, alaOtsikko);
+        } catch (PrinterException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btKjsTulostaActionPerformed
+
+    private void btMgTulosta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMgTulosta1ActionPerformed
+        /**
+         * Luodaan Otsikko ja ala otsikko(Sivunumero) ja lisätään ne
+         * tulostettavaan taulukkoon.
+         */
+        MessageFormat otsikko = new MessageFormat("Mangat");
+
+        MessageFormat alaOtsikko = new MessageFormat("Sivu{0,number,integer}");
+
+        try {
+            tbManga.print(JTable.PrintMode.FIT_WIDTH, otsikko, alaOtsikko);
+        } catch (PrinterException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btMgTulosta1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1081,7 +1141,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
         sorter = new TableRowSorter<TableModel>(dt);
         tbManga.setRowSorter(sorter);
         //Haetaan tiedot tietokannasta ja lisätään ne taulukkoon
-        ResultSet rset = db.getData("SELECT * FROM MANGA");
+        ResultSet rset = db.getData("SELECT * FROM MANGA ORDER BY NIMI,KIELI");
 
         while (rset.next()) {
             Vector v = new Vector();
@@ -1119,7 +1179,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
         //Haetaan tiedot tietokannasta ja lisätään ne taulukkoon
         ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MANGA.TEKIJA, MANGA.KUSTANTAJA, MANGA.KIELI, MANGA.GENRE, MGKIRJASTO.NRO, MGKIRJASTO.HUOM "
-                + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID");
+                + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID ORDER BY NIMI,KIELI,NRO");
 
         while (rset.next()) {
             Vector v = new Vector();
