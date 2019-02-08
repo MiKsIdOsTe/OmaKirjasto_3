@@ -33,14 +33,13 @@ public class MangaKirjasto extends javax.swing.JFrame {
      */
     public MangaKirjasto() throws ClassNotFoundException, SQLException {
         initComponents();
-        
-        
+
         tableloadMg(tbManga);
         comboloadMg(comboManga);
-        
+
         tableloadKjs(tbKirjasto);
         comboload2(comboKirjasto);
-        
+
         clear();
         rivinlasku();
     }
@@ -101,6 +100,22 @@ public class MangaKirjasto extends javax.swing.JFrame {
         btKjsPoista = new javax.swing.JButton();
         comboKirjasto = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        comboMgHaku = new javax.swing.JComboBox<>();
+        txtMgHaku = new javax.swing.JTextField();
+        btMgHaku = new javax.swing.JButton();
+        btMgTyhjenna = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        comboKjsHaku = new javax.swing.JComboBox<>();
+        txtKjsHaku = new javax.swing.JTextField();
+        btKjsTyhjenna = new javax.swing.JButton();
+        btKjsHaku = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,7 +196,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -258,7 +273,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -503,20 +518,154 @@ public class MangaKirjasto extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Valikko", jPanel3);
+
+        jLabel11.setText("Manga haku:");
+
+        jLabel12.setText("Valitse millä haetaan:");
+
+        jLabel13.setText("Kirjoita hakuehto:");
+
+        comboMgHaku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIMI", "TEKIJA", "KUSTANTAJA", "KIELI", "GENRE" }));
+
+        btMgHaku.setText("Hae");
+        btMgHaku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMgHakuActionPerformed(evt);
+            }
+        });
+
+        btMgTyhjenna.setText("Tyhjennä");
+        btMgTyhjenna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMgTyhjennaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtMgHaku)
+                            .addComponent(comboMgHaku, 0, 184, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btMgTyhjenna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btMgHaku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(comboMgHaku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btMgTyhjenna))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtMgHaku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btMgHaku))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        jLabel14.setText("Kirjasto Haku:");
+
+        jLabel15.setText("Valitse millä haetaan:");
+
+        jLabel16.setText("Kirjoita hakuehto:");
+
+        comboKjsHaku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIMI", "TEKIJA", "KUSTANTAJA", "KIELI", "GENRE", "HUOM" }));
+
+        btKjsTyhjenna.setText("Tyhjennä");
+        btKjsTyhjenna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btKjsTyhjennaActionPerformed(evt);
+            }
+        });
+
+        btKjsHaku.setText("Hae");
+        btKjsHaku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btKjsHakuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboKjsHaku, 0, 184, Short.MAX_VALUE)
+                            .addComponent(txtKjsHaku))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btKjsTyhjenna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btKjsHaku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(comboKjsHaku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btKjsTyhjenna))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtKjsHaku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btKjsHaku))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 779, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Haku", jPanel4);
@@ -553,7 +702,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -603,14 +752,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
-                
-
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 clear();
                 rivinlasku();
             }
@@ -663,13 +810,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
-               
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
-                comboload2(comboKirjasto); 
-                
+                comboload2(comboKirjasto);
+
                 clear();
                 rivinlasku();
             }
@@ -700,13 +846,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
              * id:t-tekstikenttiin. Asetetaan Manga välilehti valituksi
              * lasketaan raulukkojen rivit uudellen.
              */
-            
             tableloadMg(tbManga);
             comboloadMg(comboManga);
 
             tableloadKjs(tbKirjasto);
             comboload2(comboKirjasto);
-            
+
             clear();
             rivinlasku();
 
@@ -810,13 +955,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
-                
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 clear();
                 rivinlasku();
             }
@@ -857,13 +1001,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
                  * valikot ja id:t-tekstikenttiin. Asetetaan Manga välilehti
                  * valituksi lasketaan raulukkojen rivit uudellen.
                  */
-                
                 tableloadMg(tbManga);
                 comboloadMg(comboManga);
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 clear();
                 rivinlasku();
             }
@@ -985,7 +1128,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
     }//GEN-LAST:event_comboKirjastoPopupMenuWillBecomeInvisible
 
     private void btKjsTulostaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKjsTulostaActionPerformed
-         /**
+        /**
          * Luodaan Otsikko ja ala otsikko(Sivunumero) ja lisätään ne
          * tulostettavaan taulukkoon.
          */
@@ -993,7 +1136,6 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
         MessageFormat alaOtsikko = new MessageFormat("Sivu{0,number,integer}");
 
-        
         try {
             tbKirjasto.print(JTable.PrintMode.FIT_WIDTH, otsikko, alaOtsikko);
         } catch (PrinterException ex) {
@@ -1016,6 +1158,83 @@ public class MangaKirjasto extends javax.swing.JFrame {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btMgTulosta1ActionPerformed
+
+    private void btMgHakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMgHakuActionPerformed
+        try {
+            /**
+             * Kutsutaan tableloadMgHaku-metodia manga-talukkoon. lasketaan
+             * raulukkojen rivituudellen. Asetetaan manga välilehti
+             * päällimmäiseksi.
+             *
+             */
+            tableloadMgHaku(tbManga);
+            rivinlasku();
+            jTabbedPane2.setSelectedIndex(1);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_btMgHakuActionPerformed
+
+    private void btMgTyhjennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMgTyhjennaActionPerformed
+        try {
+            /**
+             * Tyhjennetän manga haku kenttä. lasketaan raulukkojen
+             * rivituudellen. Kutsutaan tableloadMgHaku-metodia manga-talukkoon.
+             * Asetetaan manga välilehti päällimmäiseksi.
+             */
+            txtMgHaku.setText(null);
+            rivinlasku();
+
+            tableloadMg(tbManga);
+
+            jTabbedPane2.setSelectedIndex(1);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btMgTyhjennaActionPerformed
+
+    private void btKjsHakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKjsHakuActionPerformed
+        try {
+            /**
+             * Kutsutaan tableloadKjsHaku-metodia Kirjasto-talukkoon. lasketaan
+             * raulukkojen rivituudellen. Asetetaan Kirjasto välilehti
+             * päällimmäiseksi.
+             */
+            tableloadKjsHaku(tbKirjasto);
+            rivinlasku();
+            jTabbedPane2.setSelectedIndex(0);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btKjsHakuActionPerformed
+
+    private void btKjsTyhjennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKjsTyhjennaActionPerformed
+        try {
+            /**
+             * Tyhjennetän kirjasto haku kenttä. lasketaan raulukkojen
+             * rivituudellen. Kutsutaan tableloadMgHaku-metodia manga-talukkoon.
+             * Asetetaan manga välilehti päällimmäiseksi.
+             */
+            txtKjsHaku.setText(null);
+            rivinlasku();
+            jTabbedPane2.setSelectedIndex(0);
+
+            tableloadKjs(tbKirjasto);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btKjsTyhjennaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1059,19 +1278,31 @@ public class MangaKirjasto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btKjsHaku;
     private javax.swing.JButton btKjsLisaa;
     private javax.swing.JButton btKjsPaivita;
     private javax.swing.JButton btKjsPoista;
     private javax.swing.JButton btKjsTulosta;
+    private javax.swing.JButton btKjsTyhjenna;
+    private javax.swing.JButton btMgHaku;
     private javax.swing.JButton btMgLisaa;
     private javax.swing.JButton btMgPaivita;
     private javax.swing.JButton btMgPoista;
     private javax.swing.JButton btMgTulosta1;
+    private javax.swing.JButton btMgTyhjenna;
     private javax.swing.JButton btValikkoTyhjenna;
     private javax.swing.JComboBox<String> comboKirjasto;
+    private javax.swing.JComboBox<String> comboKjsHaku;
     private javax.swing.JComboBox<String> comboManga;
+    private javax.swing.JComboBox<String> comboMgHaku;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1081,6 +1312,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1097,10 +1330,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JLabel lblMgRiviNro;
     private javax.swing.JTable tbKirjasto;
     private javax.swing.JTable tbManga;
+    private javax.swing.JTextField txtKjsHaku;
     private javax.swing.JTextField txtKjsHuom;
     private javax.swing.JTextField txtKjsID;
     private javax.swing.JTextField txtKjsNro;
     private javax.swing.JTextField txtMgGenre;
+    private javax.swing.JTextField txtMgHaku;
     private javax.swing.JTextField txtMgID;
     private javax.swing.JTextField txtMgKieli;
     private javax.swing.JTextField txtMgKustantaja;
@@ -1166,6 +1401,46 @@ public class MangaKirjasto extends javax.swing.JFrame {
         }
     }
 
+    private void tableloadMgHaku(JTable jtm) throws ClassNotFoundException, SQLException {
+        //Luodaan taulukko malli
+        DefaultTableModel dt = (DefaultTableModel) jtm.getModel();
+        //Asetetaan rivit aloittamaan 0
+        dt.setRowCount(0);
+        //Luodaan taulukko lajittelija ja asetetaan se manga taulukkoon
+        TableRowSorter<TableModel> sorter;
+        sorter = new TableRowSorter<TableModel>(dt);
+        tbManga.setRowSorter(sorter);
+        //Tarkistetaan ettei manga haku-kenttä ole tyhjä
+        if (txtMgHaku.getText().isEmpty()) {
+            //Jos haku kenttä on tyhjä niin näytetään viesti
+            JOptionPane.showMessageDialog(null, "Anna haku kenttään hakusana!");
+            //Kutsutaan tableloasMg-metodia manga taulukkoon
+            tableloadMg(tbManga);
+
+        } else {
+            /**
+             * Haetaan valittavan tiedon id comboManga:sta ja muutetaan se
+             * int-muotoon. Haetaan tiedot tietokannasta. Lisätään ne taulukkoon
+             */
+            String valittu = (String) comboMgHaku.getSelectedItem();
+            String hakuehto = txtMgHaku.getText();
+
+            ResultSet rset = db.getData("SELECT * FROM MANGA WHERE " + valittu + " LIKE '%" + hakuehto + "%' ORDER BY NIMI,KIELI");
+
+            while (rset.next()) {
+                Vector v = new Vector();
+                v.add(rset.getString(1));
+                v.add(rset.getString(2));
+                v.add(rset.getString(3));
+                v.add(rset.getString(4));
+                v.add(rset.getString(5));
+                v.add(rset.getString(6));
+
+                dt.addRow(v);
+            }
+        }
+    }
+
     //MGKIRJASTO
     private void tableloadKjs(JTable jt2) throws ClassNotFoundException, SQLException {
         //Luodaan taulukko malli
@@ -1204,6 +1479,50 @@ public class MangaKirjasto extends javax.swing.JFrame {
         while (rset.next()) {
             String pat = rset.getInt("KIRJASTOID") + " " + rset.getString("NIMI") + " " + rset.getInt("NRO") + " " + rset.getString("HUOM");
             comboKirjasto.addItem(pat);
+        }
+    }
+
+    private void tableloadKjsHaku(JTable jtk) throws ClassNotFoundException, SQLException {
+        //Luodaan taulukko malli
+        DefaultTableModel dt = (DefaultTableModel) jtk.getModel();
+        //Asetetaan rivit aloittamaan 0
+        dt.setRowCount(0);
+        //Luodaan taulukko lajittelija ja asetetaan se kirjasto taulukkoon
+        TableRowSorter<TableModel> sorter;
+        sorter = new TableRowSorter<TableModel>(dt);
+        tbKirjasto.setRowSorter(sorter);
+        //Tarkistetaan ettei manga haku-kenttä ole tyhjä
+        if (txtKjsHaku.getText().isEmpty()) {
+            //Jos haku kenttä on tyhjä niin näytetään viesti
+            JOptionPane.showMessageDialog(null, "Anna haku kenttään hakusana!");
+            //Kutsutaan tableloasMg-metodia manga taulukkoon
+            tableloadKjs(tbKirjasto);
+
+        } else {
+            /**
+             * Haetaan valittavan tiedon id comboKirjasto:sta ja muutetaan se
+             * int-muotoon. Haetaan tiedot tietokannasta. Lisätään ne taulukkoon
+             */
+
+            String valittu = (String) comboKjsHaku.getSelectedItem();
+            String hakuehto = txtKjsHaku.getText();
+
+            ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MANGA.TEKIJA, MANGA.KUSTANTAJA, MANGA.KIELI, MANGA.GENRE, MGKIRJASTO.NRO, MGKIRJASTO.HUOM "
+                    + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID WHERE " + valittu + " LIKE '%" + hakuehto + "%' ORDER BY NIMI,KIELI,NRO");
+
+            while (rset.next()) {
+                Vector v = new Vector();
+                v.add(rset.getString(1));
+                v.add(rset.getString(2));
+                v.add(rset.getString(3));
+                v.add(rset.getString(4));
+                v.add(rset.getString(5));
+                v.add(rset.getString(6));
+                v.add(rset.getString(7));
+                v.add(rset.getString(8));
+
+                dt.addRow(v);
+            }
         }
     }
 
