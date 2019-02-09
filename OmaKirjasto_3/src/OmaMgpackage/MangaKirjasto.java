@@ -39,6 +39,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
         tableloadKjs(tbKirjasto);
         comboload2(comboKirjasto);
+        
+        tableloadTulostus(tbTulostus);
 
         clear();
         rivinlasku();
@@ -67,6 +69,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         lblMgRiviNro = new javax.swing.JLabel();
         btMgTulosta1 = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbTulostus = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        lblTulostusRiviNro = new javax.swing.JLabel();
+        btTulostusTulosta = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -196,7 +204,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -273,13 +281,81 @@ public class MangaKirjasto extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jTabbedPane2.addTab("Manga", jPanel6);
+
+        tbTulostus.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nimi", "Nro", "Huom.", "Kieli"
+            }
+        ));
+        jScrollPane3.setViewportView(tbTulostus);
+        if (tbTulostus.getColumnModel().getColumnCount() > 0) {
+            tbTulostus.getColumnModel().getColumn(0).setMaxWidth(50);
+            tbTulostus.getColumnModel().getColumn(2).setMaxWidth(70);
+        }
+
+        btTulostusTulosta.setText("Tulosta");
+        btTulostusTulosta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTulostusTulostaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btTulostusTulosta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 966, Short.MAX_VALUE)
+                .addComponent(lblTulostusRiviNro, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btTulostusTulosta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTulostusRiviNro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("Tulostus", jPanel12);
 
         jLabel1.setText("Manga ID:");
 
@@ -518,7 +594,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(311, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Valikko", jPanel3);
@@ -665,7 +741,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addContainerGap(474, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Haku", jPanel4);
@@ -702,7 +778,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -757,6 +833,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
+                
+                tableloadTulostus(tbTulostus);
 
                 clear();
                 rivinlasku();
@@ -815,6 +893,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
+                
+                tableloadTulostus(tbTulostus);
 
                 clear();
                 rivinlasku();
@@ -851,6 +931,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
             tableloadKjs(tbKirjasto);
             comboload2(comboKirjasto);
+            
+            tableloadTulostus(tbTulostus);
 
             clear();
             rivinlasku();
@@ -960,6 +1042,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
+                
+                tableloadTulostus(tbTulostus);
 
                 clear();
                 rivinlasku();
@@ -1006,6 +1090,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
+                
+                tableloadTulostus(tbTulostus);
 
                 clear();
                 rivinlasku();
@@ -1041,6 +1127,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
             tableloadKjs(tbKirjasto);
             comboload2(comboKirjasto);
+            
+            tableloadTulostus(tbTulostus);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1236,6 +1324,22 @@ public class MangaKirjasto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btKjsTyhjennaActionPerformed
 
+    private void btTulostusTulostaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTulostusTulostaActionPerformed
+            /**
+         * Luodaan Otsikko ja ala otsikko(Sivunumero) ja lisätään ne
+         * tulostettavaan taulukkoon.
+         */
+        MessageFormat otsikko = new MessageFormat("Manga kirjaston Tallennus");
+
+        MessageFormat alaOtsikko = new MessageFormat("Sivu{0,number,integer}");
+
+        try {
+            tbTulostus.print(JTable.PrintMode.FIT_WIDTH, otsikko, alaOtsikko);
+        } catch (PrinterException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btTulostusTulostaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1290,6 +1394,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JButton btMgPoista;
     private javax.swing.JButton btMgTulosta1;
     private javax.swing.JButton btMgTyhjenna;
+    private javax.swing.JButton btTulostusTulosta;
     private javax.swing.JButton btValikkoTyhjenna;
     private javax.swing.JComboBox<String> comboKirjasto;
     private javax.swing.JComboBox<String> comboKjsHaku;
@@ -1314,6 +1419,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1324,12 +1431,15 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblKjsRiviNro;
     private javax.swing.JLabel lblMgRiviNro;
+    private javax.swing.JLabel lblTulostusRiviNro;
     private javax.swing.JTable tbKirjasto;
     private javax.swing.JTable tbManga;
+    private javax.swing.JTable tbTulostus;
     private javax.swing.JTextField txtKjsHaku;
     private javax.swing.JTextField txtKjsHuom;
     private javax.swing.JTextField txtKjsID;
@@ -1363,6 +1473,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
         lblKjsRiviNro.setText("" + riviKjs + " ");
         int riviMg = tbManga.getRowCount();
         lblMgRiviNro.setText("" + riviMg + " ");
+        int riviTulostus = tbTulostus.getRowCount();
+        lblTulostusRiviNro.setText("" + riviTulostus + " ");
     }
 
 //MANGA
@@ -1526,4 +1638,32 @@ public class MangaKirjasto extends javax.swing.JFrame {
         }
     }
 
+    //Tulostus
+    
+    private void tableloadTulostus(JTable jt2) throws ClassNotFoundException, SQLException {
+        //Luodaan taulukko malli
+        DefaultTableModel dt = (DefaultTableModel) jt2.getModel();
+        //Asetetaan rivit aloittamaan 0
+        dt.setRowCount(0);
+        //Luodaan taulukko lajittelija ja asetetaan se kirjasto taulukkoon
+        TableRowSorter<TableModel> sorter;
+        sorter = new TableRowSorter<TableModel>(dt);
+        tbTulostus.setRowSorter(sorter);
+
+        //Haetaan tiedot tietokannasta ja lisätään ne taulukkoon
+        ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MGKIRJASTO.NRO, MGKIRJASTO.HUOM, MANGA.KIELI "
+                + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID ORDER BY NIMI,KIELI,NRO");
+
+        while (rset.next()) {
+            Vector v = new Vector();
+            v.add(rset.getString(1));
+            v.add(rset.getString(2));
+            v.add(rset.getString(3));
+            v.add(rset.getString(4));
+            v.add(rset.getString(5));
+
+
+            dt.addRow(v);
+        }
+    }
 }
