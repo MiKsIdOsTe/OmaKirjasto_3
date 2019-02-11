@@ -39,7 +39,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
         tableloadKjs(tbKirjasto);
         comboload2(comboKirjasto);
-        
+
         tableloadTulostus(tbTulostus);
 
         clear();
@@ -299,13 +299,10 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
         tbTulostus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Nimi", "Nro", "Huom.", "Kieli"
+                "ID", "Nimi", "Nro", "Huom.", "Kustantaja", "Kieli"
             }
         ));
         jScrollPane3.setViewportView(tbTulostus);
@@ -751,7 +748,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
             }
         });
 
-        comboTulostusHaku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIMI", "HUOM" }));
+        comboTulostusHaku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIMI", "HUOM", "KUSTANTAJA" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -860,8 +857,23 @@ public class MangaKirjasto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btValikkoTyhjennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValikkoTyhjennaActionPerformed
-        clear();
-        rivinlasku();
+        try {
+            clear();
+            rivinlasku();
+
+            tableloadMg(tbManga);
+            comboloadMg(comboManga);
+
+            tableloadKjs(tbKirjasto);
+            comboload2(comboKirjasto);
+
+            tableloadTulostus(tbTulostus);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btValikkoTyhjennaActionPerformed
 
     private void btMgLisaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMgLisaaActionPerformed
@@ -906,7 +918,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 tableloadTulostus(tbTulostus);
 
                 clear();
@@ -966,7 +978,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 tableloadTulostus(tbTulostus);
 
                 clear();
@@ -1004,7 +1016,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
             tableloadKjs(tbKirjasto);
             comboload2(comboKirjasto);
-            
+
             tableloadTulostus(tbTulostus);
 
             clear();
@@ -1115,7 +1127,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 tableloadTulostus(tbTulostus);
 
                 clear();
@@ -1163,7 +1175,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
                 tableloadKjs(tbKirjasto);
                 comboload2(comboKirjasto);
-                
+
                 tableloadTulostus(tbTulostus);
 
                 clear();
@@ -1200,7 +1212,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
 
             tableloadKjs(tbKirjasto);
             comboload2(comboKirjasto);
-            
+
             tableloadTulostus(tbTulostus);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
@@ -1395,7 +1407,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
     }//GEN-LAST:event_btKjsTyhjennaActionPerformed
 
     private void btTulostusTulostaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTulostusTulostaActionPerformed
-            /**
+        /**
          * Luodaan Otsikko ja ala otsikko(Sivunumero) ja lisätään ne
          * tulostettavaan taulukkoon.
          */
@@ -1413,8 +1425,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
     private void btTulostusHakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTulostusHakuActionPerformed
         try {
             /**
-             * Kutsutaan tableloadTulostusHaku-metodia Tulostus-talukkoon. lasketaan
-             * raulukkojen rivituudellen. Asetetaan Tulostus välilehti
+             * Kutsutaan tableloadTulostusHaku-metodia Tulostus-talukkoon.
+             * lasketaan raulukkojen rivituudellen. Asetetaan Tulostus välilehti
              * päällimmäiseksi.
              */
             tableloadTulostusHaku(tbTulostus);
@@ -1425,12 +1437,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(MangaKirjasto.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+
     }//GEN-LAST:event_btTulostusHakuActionPerformed
 
     private void btTulostusTyhjennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTulostusTyhjennaActionPerformed
-         try { 
-             /**
+        try {
+            /**
              * Tyhjennetän kirjasto haku kenttä. lasketaan raulukkojen
              * rivituudellen. Kutsutaan tableloadMgHaku-metodia manga-talukkoon.
              * Asetetaan manga välilehti päällimmäiseksi.
@@ -1753,7 +1765,6 @@ public class MangaKirjasto extends javax.swing.JFrame {
     }
 
     //Tulostus
-    
     private void tableloadTulostus(JTable jt2) throws ClassNotFoundException, SQLException {
         //Luodaan taulukko malli
         DefaultTableModel dt = (DefaultTableModel) jt2.getModel();
@@ -1765,8 +1776,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
         tbTulostus.setRowSorter(sorter);
 
         //Haetaan tiedot tietokannasta ja lisätään ne taulukkoon
-        ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MGKIRJASTO.NRO, MGKIRJASTO.HUOM, MANGA.KIELI "
-                + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID ORDER BY NIMI,KIELI,NRO");
+        ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MGKIRJASTO.NRO, MGKIRJASTO.HUOM, MANGA.KUSTANTAJA, MANGA.KIELI "
+                + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID ORDER BY NIMI,NRO,KIELI");
 
         while (rset.next()) {
             Vector v = new Vector();
@@ -1775,12 +1786,12 @@ public class MangaKirjasto extends javax.swing.JFrame {
             v.add(rset.getString(3));
             v.add(rset.getString(4));
             v.add(rset.getString(5));
-
+            v.add(rset.getString(6));
 
             dt.addRow(v);
         }
     }
-    
+
     private void tableloadTulostusHaku(JTable jt3) throws ClassNotFoundException, SQLException {
         //Luodaan taulukko malli
         DefaultTableModel dt = (DefaultTableModel) jt3.getModel();
@@ -1806,8 +1817,8 @@ public class MangaKirjasto extends javax.swing.JFrame {
             String valittu = (String) comboTulostusHaku.getSelectedItem();
             String hakuehto = txtTulostusHaku.getText();
 
-            ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MGKIRJASTO.NRO, MGKIRJASTO.HUOM, MANGA.KIELI "
-                    + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID WHERE " + valittu + " LIKE '%" + hakuehto + "%' ORDER BY NIMI,KIELI,NRO");
+            ResultSet rset = db.getData("SELECT MGKIRJASTO.KIRJASTOID, MANGA.NIMI, MGKIRJASTO.NRO, MGKIRJASTO.HUOM, MANGA.KUSTANTAJA, MANGA.KIELI "
+                    + "FROM MGKIRJASTO INNER JOIN MANGA ON MGKIRJASTO.ID_MANGA = MANGA.ID WHERE " + valittu + " LIKE '%" + hakuehto + "%' ORDER BY NIMI,NRO,KIELI");
 
             while (rset.next()) {
                 Vector v = new Vector();
@@ -1816,6 +1827,7 @@ public class MangaKirjasto extends javax.swing.JFrame {
                 v.add(rset.getString(3));
                 v.add(rset.getString(4));
                 v.add(rset.getString(5));
+                v.add(rset.getString(6));
                 dt.addRow(v);
             }
         }

@@ -409,11 +409,12 @@
                     <Component class="javax.swing.JTable" name="tbTulostus">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="6" rowCount="0">
                             <Column editable="true" title="ID" type="java.lang.Object"/>
                             <Column editable="true" title="Nimi" type="java.lang.Object"/>
                             <Column editable="true" title="Nro" type="java.lang.Object"/>
                             <Column editable="true" title="Huom." type="java.lang.Object"/>
+                            <Column editable="true" title="Kustantaja" type="java.lang.Object"/>
                             <Column editable="true" title="Kieli" type="java.lang.Object"/>
                           </Table>
                         </Property>
@@ -430,6 +431,11 @@
                               <Renderer/>
                             </Column>
                             <Column maxWidth="70" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -1194,9 +1200,10 @@
                     <Component class="javax.swing.JComboBox" name="comboTulostusHaku">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="2">
+                          <StringArray count="3">
                             <StringItem index="0" value="NIMI"/>
                             <StringItem index="1" value="HUOM"/>
+                            <StringItem index="2" value="KUSTANTAJA"/>
                           </StringArray>
                         </Property>
                       </Properties>
